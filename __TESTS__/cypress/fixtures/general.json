@@ -1,0 +1,53 @@
+{
+  "shopTitle": "JamniShop",
+  "shopHeader": "Aktualny asortyment",
+  "shopCards": {
+    "kinderDelice": {
+      "title": "Kinder Delice",
+      "description": "Kinder Delice to przekąska, która spełnia wymagania mamy i oczekiwania dziecka. Tworzą go starannie dobrane, naturalne składniki: mleko, mąka, jaja i kakao. Kinder Delice to puszysty biszkopt z pysznym mleczno-kakaowym nadzieniem, który dzieci uwielbiają za wyjątkowy smak, a rodzice cenią za wartości odżywcze.",
+      "price": "3.30 zł",
+      "snackbarMessage": "Kinder Delice - dodano do koszyka w ilości: 2"
+    },
+    "kinderMaxiKing": {
+      "title": "Kinder Maxi King",
+      "description": "Kinder Maxi King to unikalny baton prosto z lodówki. To puszyste mleczne nadzienie z płynnym karmelem w delikatnym wafelku oblanym czekoladą z chrupiącymi kawałkami orzechów.",
+      "price": "7.21 zł",
+      "snackbarMessage": "Kinder Maxi King - dodano do koszyka w ilości: 1"
+    },
+    "kinderSurprise": {
+      "title": "Kinder Niespodzianka",
+      "description": "Kinder Niespodzianka to jajko z niespodzianką, pokryte pyszną czekoladą Kinder dostarczające dzieciom zabawy, rozrywki oraz emocji odkrywania.",
+      "price": "2.94 zł",
+      "snackbarMessage": "Kinder Niespodzianka - dodano do koszyka w ilości: 3"
+    },
+    "defaultCardQuantity": "0",
+    "addToCartButtonText": "Dodaj do koszyka"
+  },
+  "cartHeader": "Zawartość koszyka",
+  "cartList": {
+    "kinderDelice": {
+      "id": "cartItem-1",
+      "title": "Kinder Delice",
+      "defaultQuantity": "Ilość: 3",
+      "modifiedQuantity": "Ilość: 5"
+    },
+    "kinderMaxiKing": {
+      "id": "cartItem-2",
+      "title": "Kinder Maxi King",
+      "defaultQuantity": "Ilość: 4",
+      "modifiedQuantity": "Ilość: 0"
+    },
+    "kinderSurprise": {
+      "id": "cartItem-3",
+      "title": "Kinder Niespodzianka",
+      "defaultQuantity": "Ilość: 4",
+      "modifiedQuantity": "Ilość: 2"
+    },
+    "itemButtons": {
+      "decrementSymbol": "-",
+      "incrementSymbol": "+",
+      "removeText": "Usuń"
+    },
+    "emptyListAlertText": "Twój koszyk jest pusty!"
+  }
+}

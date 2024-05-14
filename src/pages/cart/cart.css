@@ -1,0 +1,17 @@
+.cartHeader {
+  margin: 30px 30px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.itemsList {
+  margin: 0px 10px 0px 10px;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+.itemsList h2 {
+  text-align: center;
+}

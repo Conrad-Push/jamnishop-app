@@ -2,7 +2,7 @@ import general from "../fixtures/general.json";
 
 describe("General spec", () => {
   beforeEach(() => {
-    cy.visit("https://jamnishop.web.app/");
+    cy.visit(Cypress.config().baseUrl);
   });
   it("Visit the page", () => {
     cy.title().should("eq", general.shopTitle);

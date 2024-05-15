@@ -7,8 +7,8 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "cypress:test": "npx cypress run --config-file __TESTS__/cypress/cypress.config.js",
-    "cypress:visual": "npx percy exec -- cypress run --config-file __TESTS__/cypress/cypress.config.js"
+    "cypress:test": "npx cypress run --config-file cypress.config.js",
+    "cypress:visual": "npx percy exec -- cypress run --config-file cypress.config.js"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",

@@ -31,6 +31,7 @@ export const Shop = () => {
           <ProductCard
             productId={3}
             image="/kinderSurprise.jpg?url"
+            // image="/bug.png?url"
             title="Kinder Niespodzianka"
             description="Kinder Niespodzianka to jajko z niespodzianką, pokryte pyszną czekoladą Kinder dostarczające dzieciom zabawy, rozrywki oraz emocji odkrywania."
             price="2.94"

@@ -16,6 +16,7 @@ export const Navbar = () => {
           <img src="/tabLogo.png?url" alt="JamniShop Logo" />
           <h1 className="logoTitle">JamniShop</h1>
           <img src="/tabLogo2.png?url" alt="JamniShop Logo 2" />
+          {/* <img src="/tabLogo3.png?url" alt="JamniShop Logo 2" /> */}
         </Link>
       </div>
       <div className="cartLink">
@@ -24,6 +25,7 @@ export const Navbar = () => {
             className="cartBadge"
             badgeContent={badgeCount}
             color="secondary"
+            // color="primary"
           >
             <Button className="cartButton" variant="text" color="inherit">
               <ShoppingCartIcon style={{ fontSize: 38 }} />

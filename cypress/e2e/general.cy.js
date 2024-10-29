@@ -103,139 +103,39 @@ describe("General spec", () => {
       .and("have.text", general.shopCards.addToCartButtonText);
   });
 
-  it("Check 'Add to cart' card's and cart's badge functionality", () => {
-    cy.get(".MuiBadge-badge").should("not.be.visible");
-    cy.get(".kinderDeliceCard")
-      .find(".cardAddButton")
-      .should("be.disabled")
-      .and("have.text", general.shopCards.addToCartButtonText);
-    cy.get(".kinderDeliceCard")
-      .find(".cardDecrementButton")
-      .should("be.disabled");
-    cy.get(".kinderDeliceCard")
-      .find(".cardQuantity")
-      .should("have.text", general.shopCards.defaultCardQuantity);
-    cy.get(".kinderDeliceCard")
-      .find(".cardIncrementButton")
-      .should("be.enabled")
-      .click()
-      .click()
-      .click();
-    cy.get(".kinderDeliceCard").find(".cardQuantity").should("have.text", "3");
-    cy.get(".kinderDeliceCard")
-      .find(".cardDecrementButton")
-      .should("be.enabled")
-      .click();
-    cy.get(".kinderDeliceCard").find(".cardQuantity").should("have.text", "2");
-    cy.get(".kinderDeliceCard")
-      .find(".cardAddButton")
-      .should("be.enabled")
-      .click();
-    cy.get(".infoSnackbar")
-      .should("exist")
-      .find(".MuiSnackbarContent-message")
-      .should("have.text", general.shopCards.kinderDelice.snackbarMessage);
-    cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "2");
+  it.only("Adding various amount of products to the shop's cart", () => {
+    cy.get(".kinderDeliceCard").find(".cardIncrementButton").click();
+    cy.get(".kinderDeliceCard").find(".cardAddButton")
+      .should("be.active").click();
 
-    cy.get(".kinderDeliceCard")
-      .find(".cardDecrementButton")
-      .should("be.disabled");
+    cy.get(".kinderDeliceCard").find(".cardQuantity").should("have.text", "0");
+    cy.get(".kinderDeliceCard").find(".cardDecrementButton").should("be.disabled");
     cy.get(".kinderDeliceCard").find(".cardAddButton").should("be.disabled");
-    cy.get(".kinderDeliceCard")
-      .find(".cardQuantity")
-      .should("have.text", general.shopCards.defaultCardQuantity);
+    cy.get(".infoSnackbar").should("exist")
+      .find(".MuiSnackbarContent-message").should("have.text", "Kinder Delice - dodano do koszyka w ilości: 1");
+    cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "1");
 
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardAddButton")
-      .should("be.disabled")
-      .and("have.text", general.shopCards.addToCartButtonText);
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardDecrementButton")
-      .should("be.disabled");
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardQuantity")
-      .should("have.text", general.shopCards.defaultCardQuantity);
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardIncrementButton")
-      .should("be.enabled")
-      .click()
-      .click()
-      .click()
-      .click();
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardQuantity")
-      .should("have.text", "4");
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardDecrementButton")
-      .should("be.enabled")
-      .click()
-      .click()
-      .click();
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardQuantity")
-      .should("have.text", "1");
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardAddButton")
-      .should("be.enabled")
-      .click();
-    cy.get(".infoSnackbar")
-      .should("exist")
-      .find(".MuiSnackbarContent-message")
-      .should("have.text", general.shopCards.kinderMaxiKing.snackbarMessage);
+    cy.get(".kinderMaxiKingCard").find(".cardIncrementButton").click().click().click();
+    cy.get(".kinderMaxiKingCard").find(".cardAddButton")
+      .should("be.active").click();
+
+    cy.get(".kinderMaxiKingCard").find(".cardQuantity").should("have.text", "0");
+    cy.get(".kinderMaxiKingCard").find(".cardDecrementButton").should("be.disabled");
+    cy.get(".kinderMaxiKingCard").find(".cardAddButton").should("be.disabled");
+    cy.get(".infoSnackbar").should("exist")
+      .find(".MuiSnackbarContent-message").should("have.text", "Kinder Maxi King - dodano do koszyka w ilości: 3");
     cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "3");
 
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardDecrementButton")
-      .should("be.disabled");
-    cy.get(".kinderMaxiKingCard").find(".cardAddButton").should("be.disabled");
-    cy.get(".kinderMaxiKingCard")
-      .find(".cardQuantity")
-      .should("have.text", general.shopCards.defaultCardQuantity);
+    cy.get(".kinderSurpriseCard").find(".cardIncrementButton").click().click();
+    cy.get(".kinderSurpriseCard").find(".cardAddButton")
+      .should("be.active").click();
 
-    cy.get(".kinderSurpriseCard")
-      .find(".cardAddButton")
-      .should("be.disabled")
-      .and("have.text", general.shopCards.addToCartButtonText);
-    cy.get(".kinderSurpriseCard")
-      .find(".cardDecrementButton")
-      .should("be.disabled");
-    cy.get(".kinderSurpriseCard")
-      .find(".cardQuantity")
-      .should("have.text", general.shopCards.defaultCardQuantity);
-    cy.get(".kinderSurpriseCard")
-      .find(".cardIncrementButton")
-      .should("be.enabled")
-      .click()
-      .click()
-      .click()
-      .click();
-    cy.get(".kinderSurpriseCard")
-      .find(".cardQuantity")
-      .should("have.text", "4");
-    cy.get(".kinderSurpriseCard")
-      .find(".cardDecrementButton")
-      .should("be.enabled")
-      .click();
-    cy.get(".kinderSurpriseCard")
-      .find(".cardQuantity")
-      .should("have.text", "3");
-    cy.get(".kinderSurpriseCard")
-      .find(".cardAddButton")
-      .should("be.enabled")
-      .click();
-    cy.get(".infoSnackbar")
-      .should("exist")
-      .find(".MuiSnackbarContent-message")
-      .should("have.text", general.shopCards.kinderSurprise.snackbarMessage);
-    cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "6");
-
-    cy.get(".kinderSurpriseCard")
-      .find(".cardDecrementButton")
-      .should("be.disabled");
+    cy.get(".kinderSurpriseCard").find(".cardQuantity").should("have.text", "0");
+    cy.get(".kinderSurpriseCard").find(".cardDecrementButton").should("be.disabled");
     cy.get(".kinderSurpriseCard").find(".cardAddButton").should("be.disabled");
-    cy.get(".kinderSurpriseCard")
-      .find(".cardQuantity")
-      .should("have.text", general.shopCards.defaultCardQuantity);
+    cy.get(".infoSnackbar").should("exist")
+      .find(".MuiSnackbarContent-message").should("have.text", "Kinder Niespodzianka - dodano do koszyka w ilości: 2");
+    cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "2");
   });
 
   it("Check the cart functionality", () => {

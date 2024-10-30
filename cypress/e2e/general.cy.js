@@ -106,7 +106,7 @@ describe("General spec", () => {
   it.only("Adding various amount of products to the shop's cart", () => {
     cy.get(".kinderDeliceCard").find(".cardIncrementButton").click();
     cy.get(".kinderDeliceCard").find(".cardAddButton")
-      .should("be.active").click();
+      .should("be.enabled").click();
 
     cy.get(".kinderDeliceCard").find(".cardQuantity").should("have.text", "0");
     cy.get(".kinderDeliceCard").find(".cardDecrementButton").should("be.disabled");
@@ -117,25 +117,25 @@ describe("General spec", () => {
 
     cy.get(".kinderMaxiKingCard").find(".cardIncrementButton").click().click().click();
     cy.get(".kinderMaxiKingCard").find(".cardAddButton")
-      .should("be.active").click();
+      .should("be.enabled").click();
 
     cy.get(".kinderMaxiKingCard").find(".cardQuantity").should("have.text", "0");
     cy.get(".kinderMaxiKingCard").find(".cardDecrementButton").should("be.disabled");
     cy.get(".kinderMaxiKingCard").find(".cardAddButton").should("be.disabled");
     cy.get(".infoSnackbar").should("exist")
       .find(".MuiSnackbarContent-message").should("have.text", "Kinder Maxi King - dodano do koszyka w ilości: 3");
-    cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "3");
+    cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "4");
 
     cy.get(".kinderSurpriseCard").find(".cardIncrementButton").click().click();
     cy.get(".kinderSurpriseCard").find(".cardAddButton")
-      .should("be.active").click();
+      .should("be.enabled").click();
 
     cy.get(".kinderSurpriseCard").find(".cardQuantity").should("have.text", "0");
     cy.get(".kinderSurpriseCard").find(".cardDecrementButton").should("be.disabled");
     cy.get(".kinderSurpriseCard").find(".cardAddButton").should("be.disabled");
     cy.get(".infoSnackbar").should("exist")
       .find(".MuiSnackbarContent-message").should("have.text", "Kinder Niespodzianka - dodano do koszyka w ilości: 2");
-    cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "2");
+    cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "6");
   });
 
   it("Check the cart functionality", () => {

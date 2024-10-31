@@ -102,7 +102,7 @@ describe("General spec", () => {
       .should("be.disabled")
       .and("have.text", general.shopCards.addToCartButtonText);
 
-      cy.percySnapshot("Cart page snapshot");
+      cy.percySnapshot("Products page snapshot");
   });
 
   it("Adding various amount of products to the shop's cart", () => {

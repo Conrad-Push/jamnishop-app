@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import List from "@mui/material/List";
 import CartItem from "../../components/cartItem";
 import { useBadge } from "../../providers/badgeContext";
@@ -6,6 +7,7 @@ import "./cart.css";
 
 export const Cart = () => {
   const { cartItems, setCartItems } = useBadge();
+  const navigate = useNavigate();
 
   const handleIncrement = (id) => {
     const newItems = cartItems.map((item) =>
@@ -26,6 +28,19 @@ export const Cart = () => {
   const handleDelete = (id) => {
     const newItems = cartItems.filter((item) => item.id !== id);
     setCartItems(newItems);
+  };
+
+  const handlePurchase = () => {
+    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+    // Show the alert/snackbar
+    alert(`You have bought ${totalItems} items!`);
+
+    // Clear the cart items
+    setCartItems([]);
+
+    // Redirect to the shop page
+    navigate("/");
   };
 
   return (
@@ -50,6 +65,11 @@ export const Cart = () => {
           <h2 className="emptyListAlert">Twój koszyk jest pusty!</h2> // Display this message when cart is empty
         )}
       </div>
+      {cartItems.length > 0 && (
+        <button className="buyButton" onClick={handlePurchase}>
+          Kup
+        </button>
+      )}
     </div>
   );
 };

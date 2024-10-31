@@ -282,6 +282,43 @@ describe("General spec", () => {
       .should("be.visible")
       .and("have.text", general.cartList.emptyListAlertText);
 
+    cy.get(".buyButton").should("not.exist");
+
     cy.percySnapshot("Empty cart page snapshot");
   });
+
+  it("Check the purchase functionality using the 'Kup' button", () => {
+    // Add items to the cart
+    cy.get(".kinderDeliceCard")
+      .find(".cardIncrementButton")
+      .click()
+      .click();
+    cy.get(".kinderDeliceCard")
+      .find(".cardAddButton")
+      .click();
+  
+    // Check the badge to confirm items are added
+    cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "2");
+  
+    // Go to the cart page
+    cy.get(".cartLink").click();
+  
+    // Verify the "Kup" button is visible
+    cy.get(".buyButton").should("be.visible").and("have.text", "Kup");
+  
+    // Click the "Kup" button
+    cy.get(".buyButton").click();
+  
+    // Verify that the alert message is correct (using cy.on for alert)
+    cy.on("window:alert", (text) => {
+      expect(text).to.equal("You have bought 2 items!");
+    });
+  
+    // Verify that the cart is cleared and redirected back to the shop page
+    cy.url().should("include", "/"); // Assuming shop page is at "/"
+    cy.get(".MuiBadge-badge").should("not.be.visible");
+  
+    // Take a Percy snapshot of the empty cart or redirection page
+    cy.percySnapshot("Shop page after purchase");
+  });  
 });

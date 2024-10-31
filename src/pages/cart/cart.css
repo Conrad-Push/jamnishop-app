@@ -15,3 +15,20 @@
 .itemsList h2 {
   text-align: center;
 }
+
+.buyButton {
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  background-color: #539d46;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.buyButton:hover {
+  background-color: #45a049;
+}

@@ -101,8 +101,6 @@ describe("General spec", () => {
       .find(".cardAddButton")
       .should("be.disabled")
       .and("have.text", general.shopCards.addToCartButtonText);
-
-      cy.percySnapshot("Products page snapshot");
   });
 
   it("Adding various amount of products to the shop's cart", () => {

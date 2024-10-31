@@ -43,6 +43,10 @@ export const Cart = () => {
     navigate("/");
   };
 
+  const handleClearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <div className="cartPage">
       <div className="cartHeader">
@@ -66,9 +70,17 @@ export const Cart = () => {
         )}
       </div>
       {cartItems.length > 0 && (
-        <button className="buyButton" onClick={handlePurchase}>
-          Kup
-        </button>
+        <div className="cartButtons">
+          <button className="cartButton buyButton" onClick={handlePurchase}>
+            Kup
+          </button>
+          <button
+            className="cartButton clearCartButton"
+            onClick={handleClearCart}
+          >
+            Wyczyść koszyk
+          </button>
+        </div>
       )}
     </div>
   );

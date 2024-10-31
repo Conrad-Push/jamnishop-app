@@ -16,17 +16,36 @@
   text-align: center;
 }
 
-.buyButton {
-  margin: 20px auto;
+.cartButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Common button styles */
+.cartButton {
   padding: 10px 20px;
   font-size: 18px;
   color: white;
-  background-color: #539d46;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  display: block;
   transition: background-color 0.3s;
+}
+
+/* Specific styles for "Clear Cart" button */
+.clearCartButton {
+  background-color: #e53935;
+}
+
+.clearCartButton:hover {
+  background-color: #d32f2f;
+}
+
+/* Specific styles for "Kup" button */
+.buyButton {
+  background-color: #539d46;
 }
 
 .buyButton:hover {

@@ -71,14 +71,14 @@ export const Cart = () => {
       </div>
       {cartItems.length > 0 && (
         <div className="cartButtons">
-          <button className="cartButton buyButton" onClick={handlePurchase}>
-            Kup
-          </button>
           <button
             className="cartButton clearCartButton"
             onClick={handleClearCart}
           >
             Wyczyść koszyk
+          </button>
+          <button className="cartButton buyButton" onClick={handlePurchase}>
+            Kup
           </button>
         </div>
       )}

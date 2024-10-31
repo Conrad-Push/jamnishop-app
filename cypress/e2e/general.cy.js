@@ -72,10 +72,10 @@ describe("General spec", () => {
       .should("have.text", general.shopCards.defaultCardQuantity);
     cy.get(".kinderMaxiKingCard")
       .find(".cardIncrementButton")
-      .should("be.enabled");
+      .should("be.enabled").click();
     cy.get(".kinderMaxiKingCard")
       .find(".cardAddButton")
-      .should("be.disabled")
+      .should("be.enabled")
       .and("have.text", general.shopCards.addToCartButtonText);
 
     cy.get(".kinderSurpriseCard").should("exist").and("be.visible");
@@ -101,9 +101,11 @@ describe("General spec", () => {
       .find(".cardAddButton")
       .should("be.disabled")
       .and("have.text", general.shopCards.addToCartButtonText);
+
+      cy.percySnapshot("Cart page snapshot");
   });
 
-  it.only("Adding various amount of products to the shop's cart", () => {
+  it("Adding various amount of products to the shop's cart", () => {
     cy.get(".kinderDeliceCard").find(".cardIncrementButton").click();
     cy.get(".kinderDeliceCard").find(".cardAddButton")
       .should("be.enabled").click();
@@ -176,6 +178,7 @@ describe("General spec", () => {
     cy.get(".cartLink").should("exist").click();
     cy.get(".MuiBadge-badge").should("be.visible").and("have.text", "11");
     cy.get(".cartHeader").should("exist").and("have.text", general.cartHeader);
+    
     cy.percySnapshot("Cart page snapshot");
 
     cy.get(".cartItem-1")
